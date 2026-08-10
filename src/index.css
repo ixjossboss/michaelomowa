@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  
+  /* Executive Emerald Palette matching Michael's visual portrait */
+  --color-primary: #059669;
+  --color-primary-dark: #047857;
+  --color-primary-light: #ECFDF5;
+  --color-primary-hover: #0284C7;
+  
+  --color-emerald-accent: #10B981;
+  --color-slate-surface: #FAFAFA;
+}
+
+/* Custom CSS Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #059669;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #047857;
+}
+
+/* Base theme transitions */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #020617;
+  color: #f8fafc;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Custom Micro-animations & Glassmorphism helpers */
+@keyframes subtlePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-subtle-pulse {
+  animation: subtlePulse 4s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .glass-nav {
+  background: rgba(2, 6, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Hover Glowing Effects */
+.glow-hover-card {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+.glow-hover-card:hover {
+  box-shadow: 0 12px 32px -8px rgba(16, 185, 129, 0.28), 0 0 16px -4px rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.6) !important;
+  transform: translateY(-3px);
+}
+
+.dark .glow-hover-card:hover {
+  box-shadow: 0 14px 36px -8px rgba(16, 185, 129, 0.35), 0 0 20px -2px rgba(16, 185, 129, 0.25);
+  border-color: rgba(16, 185, 129, 0.7) !important;
+}
+
+.glow-btn-primary {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-btn-primary:hover {
+  box-shadow: 0 0 22px 2px rgba(5, 150, 105, 0.45);
+  transform: translateY(-1px);
+}
+
+.glow-badge {
+  transition: all 0.25s ease;
+}
+.glow-badge:hover {
+  box-shadow: 0 0 12px 1px rgba(16, 185, 129, 0.3);
+  border-color: rgba(16, 185, 129, 0.6) !important;
+}
+
+
